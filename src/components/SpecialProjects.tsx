@@ -12,31 +12,31 @@ const SpecialProjects = () => {
     {
       title: "Arte Autoral para Kombi 'Ciga-Nos'",
       client: "@ciga_nosnakombi",
-      image: kombiCiganos1,
+      images: [kombiCiganos1, kombiCiganos2],
       category: "Arte em Veículo",
     },
     {
       title: "Design em Painel para Coleção de Moda",
       client: "Midi Zero11",
-      image: midiFashion,
+      images: [midiFashion],
       category: "Moda & Design",
     },
     {
       title: "Produtos Personalizados & Autorais",
       client: "Lu Cesetti Art",
-      image: products,
+      images: [products],
       category: "Produtos",
     },
     {
       title: "Live Painting em Eventos",
       client: "Crema Cultural & Casa Ativa - Santos",
-      image: livePainting,
+      images: [livePainting],
       category: "Performance",
     },
     {
       title: "Painel Live Painting - Dia das Mães",
       client: "Redebody Tech",
-      image: redebodyPanel,
+      images: [redebodyPanel],
       category: "Corporativo",
     },
   ];
@@ -64,16 +64,22 @@ const SpecialProjects = () => {
                 className="group overflow-hidden border-2 hover:border-accent hover:shadow-medium transition-all duration-300"
               >
                 <CardContent className="p-0">
-                  <div className="relative aspect-square overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <Badge 
-                      className="absolute top-4 left-4 bg-accent text-accent-foreground"
-                    >
+                  <div className={`grid ${project.images.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} gap-0`}>
+                    {project.images.map((image, imgIndex) => (
+                      <div
+                        key={imgIndex}
+                        className="relative aspect-square overflow-hidden"
+                      >
+                        <img
+                          src={image}
+                          alt={`${project.title} - Imagem ${imgIndex + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="absolute top-4 left-4 z-10">
+                    <Badge className="bg-accent text-accent-foreground">
                       {project.category}
                     </Badge>
                   </div>
