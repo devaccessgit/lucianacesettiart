@@ -21,6 +21,7 @@ const Navigation = () => {
     { label: "Projetos", href: "#projetos-especiais" },
     { label: "Mídia", href: "#midia" },
     { label: "Clientes", href: "#clientes" },
+    { label: "Blog", href: "#blog" },
     { label: "Contato", href: "#contato" },
   ];
 

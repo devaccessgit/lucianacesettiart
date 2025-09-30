@@ -5,6 +5,7 @@ import Portfolio from "@/components/Portfolio";
 import SpecialProjects from "@/components/SpecialProjects";
 import Media from "@/components/Media";
 import Clients from "@/components/Clients";
+import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -19,6 +20,7 @@ const Index = () => {
         <SpecialProjects />
         <Media />
         <Clients />
+        <Blog />
         <Contact />
       </main>
       <Footer />
