@@ -10,13 +10,15 @@ const Contact = () => {
       value: "lucianacesetti.com.br",
       link: "mailto:oi@lucianacesetti.com.br",
       display: "oi@lucianacesetti.com.br",
+      isEmail: true,
     },
     {
       icon: Instagram,
       label: "Instagram",
       value: "@lu.cesetti.art",
-      link: "https://instagram.com/lu.cesetti.art",
+      link: "https://www.instagram.com/lu.cesetti.art",
       display: "@lu.cesetti.art",
+      isEmail: false,
     },
     {
       icon: Phone,
@@ -24,6 +26,7 @@ const Contact = () => {
       value: "(11) 96058-3005",
       link: "https://wa.me/5511960583005",
       display: "(11) 96058-3005",
+      isEmail: false,
     },
   ];
 
@@ -46,8 +49,12 @@ const Contact = () => {
                 key={index}
                 className="group overflow-hidden border-2 hover:border-primary hover:shadow-medium transition-all duration-300 cursor-pointer"
                 onClick={() => {
-                  const newWindow = window.open(item.link, '_blank', 'noopener,noreferrer');
-                  if (newWindow) newWindow.opener = null;
+                  if (item.isEmail) {
+                    window.location.href = item.link;
+                  } else {
+                    const newWindow = window.open(item.link, '_blank', 'noopener,noreferrer');
+                    if (newWindow) newWindow.opener = null;
+                  }
                 }}
               >
                 <CardContent className="p-6 text-center space-y-4">
@@ -91,7 +98,7 @@ const Contact = () => {
                   variant="outline"
                   size="lg"
                   onClick={() => {
-                    const newWindow = window.open('https://instagram.com/lu.cesetti.art', '_blank', 'noopener,noreferrer');
+                    const newWindow = window.open('https://www.instagram.com/lu.cesetti.art', '_blank', 'noopener,noreferrer');
                     if (newWindow) newWindow.opener = null;
                   }}
                   className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary text-base font-semibold"
