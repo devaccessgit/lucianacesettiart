@@ -45,7 +45,10 @@ const Contact = () => {
               <Card 
                 key={index}
                 className="group overflow-hidden border-2 hover:border-primary hover:shadow-medium transition-all duration-300 cursor-pointer"
-                onClick={() => window.open(item.link, '_blank')}
+                onClick={() => {
+                  const newWindow = window.open(item.link, '_blank', 'noopener,noreferrer');
+                  if (newWindow) newWindow.opener = null;
+                }}
               >
                 <CardContent className="p-6 text-center space-y-4">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
@@ -75,7 +78,10 @@ const Contact = () => {
                 <Button 
                   variant="secondary"
                   size="lg"
-                  onClick={() => window.open('https://wa.me/5511960583005', '_blank')}
+                  onClick={() => {
+                    const newWindow = window.open('https://wa.me/5511960583005', '_blank', 'noopener,noreferrer');
+                    if (newWindow) newWindow.opener = null;
+                  }}
                   className="text-base font-semibold"
                 >
                   <Phone className="mr-2 h-5 w-5" />
@@ -84,7 +90,10 @@ const Contact = () => {
                 <Button 
                   variant="outline"
                   size="lg"
-                  onClick={() => window.open('https://instagram.com/lu.cesetti.art', '_blank')}
+                  onClick={() => {
+                    const newWindow = window.open('https://instagram.com/lu.cesetti.art', '_blank', 'noopener,noreferrer');
+                    if (newWindow) newWindow.opener = null;
+                  }}
                   className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary text-base font-semibold"
                 >
                   <Instagram className="mr-2 h-5 w-5" />

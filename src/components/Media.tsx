@@ -123,7 +123,10 @@ const Media = () => {
                     <Button 
                       variant="outline" 
                       className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all"
-                      onClick={() => window.open(item.link, '_blank')}
+                      onClick={() => {
+                        const newWindow = window.open(item.link, '_blank', 'noopener,noreferrer');
+                        if (newWindow) newWindow.opener = null;
+                      }}
                     >
                       {item.isVideo ? 'Assistir Matéria' : 'Ver Post'}
                       <ExternalLink className="ml-2 h-4 w-4" />
