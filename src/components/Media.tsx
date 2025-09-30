@@ -15,7 +15,7 @@ const Media = () => {
       image: globoNews,
       type: "Entrevista TV",
       year: "2020",
-      link: "#",
+      link: "https://www.instagram.com/p/CCHVKASJWdr/",
       isVideo: true,
     },
     {
@@ -24,7 +24,7 @@ const Media = () => {
       image: uolTapaCasa,
       type: "Matéria",
       year: "2020",
-      link: "#",
+      link: "https://www.uol.com.br/nossa/videos/2020/08/07/reforma-em-um-dia-quarto-vira-home-office-e-atelie-com-solucoes-criativas.htm",
       isVideo: true,
     },
     {
@@ -33,7 +33,7 @@ const Media = () => {
       image: gilletteVenus,
       type: "Parceria",
       year: "2023",
-      link: "#",
+      link: "https://www.instagram.com/p/CPx5X8VDdL3/?img_index=1",
       isVideo: false,
     },
     {
@@ -43,16 +43,28 @@ const Media = () => {
       type: "Parceria",
       year: "2023",
       engagement: "24.3k curtidas",
-      link: "#",
+      link: "https://www.instagram.com/reel/CSXT3Pzp3TO/",
       isVideo: false,
     },
   ];
 
   const additionalMedia = [
-    "Outros projetos do Quadro 'Tapa na Casa' com atuação de Lu Cesetti",
-    "Pintura e soluções criativas feitas em casa dão nova vida à sala de família",
-    "Como renovar o quarto com menos de R$ 999: veja antes e depois",
-    "Muro de policlínica de Santos ganha painel comemorativo ao Mês da Mulher",
+    {
+      text: "Pintura e soluções criativas feitas em casa dão nova vida à sala de família",
+      link: "https://www.uol.com.br/nossa/videos/2020/09/04/pintura-e-solucoes-criativas-feitas-em-casa-dao-nova-vida-a-sala-de-familia.htm"
+    },
+    {
+      text: "Como renovar o quarto com menos de R$ 999: veja antes e depois",
+      link: "https://www.uol.com.br/nossa/videos/2020/11/06/como-renovar-o-quarto-com-menos-de-r-999-veja-antes-e-depois.htm"
+    },
+    {
+      text: "Reforma de até R$ 999 realiza sonho de menina para o quarto",
+      link: "https://www.uol.com.br/play/videos/nossa/2021/12/13/reforma-de-ate-r-999-realiza-sonho-de-menina-para-o-quarto.htm"
+    },
+    {
+      text: "Muro de policlínica de Santos ganha painel comemorativo ao Mês da Mulher",
+      link: "#"
+    },
   ];
 
   return (
@@ -144,10 +156,16 @@ const Media = () => {
               {additionalMedia.map((item, index) => (
                 <div 
                   key={index}
-                  className="flex items-start gap-3 p-4 bg-card rounded-lg border border-border hover:border-primary transition-colors"
+                  className="flex items-start gap-3 p-4 bg-card rounded-lg border border-border hover:border-primary transition-colors cursor-pointer"
+                  onClick={() => {
+                    if (item.link !== "#") {
+                      const newWindow = window.open(item.link, '_blank', 'noopener,noreferrer');
+                      if (newWindow) newWindow.opener = null;
+                    }
+                  }}
                 >
                   <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  <p className="text-sm text-foreground/80">{item}</p>
+                  <p className="text-sm text-foreground/80">{item.text}</p>
                 </div>
               ))}
             </div>
