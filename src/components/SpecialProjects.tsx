@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { X } from "lucide-react";
 import kombiCiganos1 from "@/assets/kombi-ciganos-1.jpg";
 import kombiCiganos2 from "@/assets/kombi-ciganos-2.jpg";
 import midiFashion from "@/assets/midi-fashion.jpg";
@@ -17,6 +20,8 @@ interface SpecialProject {
 }
 
 const SpecialProjects = () => {
+  const [selectedProject, setSelectedProject] = useState<SpecialProject | null>(null);
+
   const projects: SpecialProject[] = [
     {
       title: "Arte Autoral para Kombi 'Ciga-Nos'",
@@ -75,7 +80,8 @@ const SpecialProjects = () => {
             {projects.map((project, index) => (
               <Card 
                 key={index}
-                className="group overflow-hidden border-2 hover:border-accent hover:shadow-medium transition-all duration-300"
+                className="group overflow-hidden border-2 hover:border-accent hover:shadow-medium transition-all duration-300 cursor-pointer"
+                onClick={() => setSelectedProject(project)}
               >
                 <CardContent className="p-0">
                   {/* Carrossel de miniaturas quadradas */}
@@ -120,6 +126,65 @@ const SpecialProjects = () => {
               </Card>
             ))}
           </div>
+
+          {/* Modal com detalhes do projeto */}
+          <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+              {selectedProject && (
+                <>
+                  <DialogHeader>
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <Badge className="mb-3 bg-accent text-accent-foreground">
+                          {selectedProject.category}
+                        </Badge>
+                        <DialogTitle className="text-3xl font-bold mb-2">
+                          {selectedProject.title}
+                        </DialogTitle>
+                        <DialogDescription className="text-lg">
+                          Cliente: {selectedProject.client}
+                        </DialogDescription>
+                      </div>
+                    </div>
+                  </DialogHeader>
+                  
+                  <div className="space-y-6 mt-6">
+                    {/* Carrossel de imagens grandes */}
+                    <Carousel className="w-full">
+                      <CarouselContent>
+                        {selectedProject.images.map((image, imgIndex) => (
+                          <CarouselItem key={imgIndex}>
+                            <div className="relative aspect-video overflow-hidden rounded-lg">
+                              <img
+                                src={image}
+                                alt={`${selectedProject.title} - Imagem ${imgIndex + 1}`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      {selectedProject.images.length > 1 && (
+                        <>
+                          <CarouselPrevious className="left-4" />
+                          <CarouselNext className="right-4" />
+                        </>
+                      )}
+                    </Carousel>
+
+                    {/* Descrição do projeto */}
+                    {selectedProject.description && (
+                      <div className="prose prose-lg max-w-none">
+                        <p className="text-muted-foreground leading-relaxed">
+                          {selectedProject.description}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </>
+              )}
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </section>
