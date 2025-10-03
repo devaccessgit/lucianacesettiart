@@ -22,11 +22,14 @@ const Navigation = () => {
     { label: "Mídia", href: "#midia" },
     { label: "Clientes", href: "#clientes" },
     { label: "Blog", href: "#blog" },
+    { label: "Loja", href: "https://lucesettiart.myshopify.com/", external: true },
     { label: "Contato", href: "#contato" },
   ];
 
-  const scrollToSection = (href: string) => {
-    if (href === "#") {
+  const scrollToSection = (href: string, external?: boolean) => {
+    if (external) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    } else if (href === "#") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       const element = document.querySelector(href);
@@ -59,7 +62,7 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.label}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => scrollToSection(item.href, item.external)}
                   className="text-foreground/80 hover:text-primary font-medium transition-colors relative group"
                 >
                   {item.label}
@@ -98,7 +101,7 @@ const Navigation = () => {
                 {navItems.map((item) => (
                   <button
                     key={item.label}
-                    onClick={() => scrollToSection(item.href)}
+                    onClick={() => scrollToSection(item.href, item.external)}
                     className="text-left text-lg font-medium text-foreground/80 hover:text-primary transition-colors py-2"
                   >
                     {item.label}

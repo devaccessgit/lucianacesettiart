@@ -18,7 +18,7 @@ const Hero = () => {
             backgroundImage: `url(${heroPortrait})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            filter: "blur(8px)",
+            filter: "blur(2px)",
           }}
         />
       </div>
