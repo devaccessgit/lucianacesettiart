@@ -7,7 +7,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
-              Sobre Luciana
+              Minha História
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           </div>

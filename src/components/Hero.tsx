@@ -48,18 +48,18 @@ const Hero = () => {
               <Button 
                 variant="hero" 
                 size="lg"
-                onClick={scrollToPortfolio}
+                onClick={() => document.getElementById("orcamento")?.scrollIntoView({ behavior: "smooth" })}
                 className="group"
               >
-                Ver Portfólio
+                Fazer Orçamento
                 <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={scrollToPortfolio}
               >
-                Entre em Contato
+                Ver Portfólio
               </Button>
             </div>
           </div>

@@ -14,15 +14,15 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
+  const navItems: Array<{ label: string; href: string; external?: boolean }> = [
     { label: "Início", href: "#" },
     { label: "Sobre", href: "#sobre" },
     { label: "Portfolio", href: "#portfolio" },
     { label: "Projetos", href: "#projetos-especiais" },
     { label: "Mídia", href: "#midia" },
     { label: "Clientes", href: "#clientes" },
-    { label: "Blog", href: "#blog" },
-    { label: "Loja", href: "https://lucesettiart.myshopify.com/", external: true },
+    { label: "Loja", href: "#loja" },
+    { label: "Orçamento", href: "#orcamento" },
     { label: "Contato", href: "#contato" },
   ];
 

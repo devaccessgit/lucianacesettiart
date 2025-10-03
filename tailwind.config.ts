@@ -50,7 +50,10 @@ export default {
         botanical: {
           green: "hsl(var(--botanical-green))",
           "green-light": "hsl(var(--botanical-green-light))",
+          "green-dark": "hsl(var(--botanical-green-dark))",
         },
+        rose: "hsl(var(--rose))",
+        marsala: "hsl(var(--marsala))",
         terracotta: "hsl(var(--terracotta))",
         "warm-beige": "hsl(var(--warm-beige))",
         "earth-brown": "hsl(var(--earth-brown))",

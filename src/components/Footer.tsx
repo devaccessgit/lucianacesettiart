@@ -29,13 +29,11 @@ const Footer = () => {
                 <a href="#midia" className="text-background/80 hover:text-background transition-colors">
                   Mídia
                 </a>
-                <a 
-                  href="https://lucesettiart.myshopify.com/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-background/80 hover:text-background transition-colors"
-                >
+                <a href="#loja" className="text-background/80 hover:text-background transition-colors">
                   Loja
+                </a>
+                <a href="#orcamento" className="text-background/80 hover:text-background transition-colors">
+                  Orçamento
                 </a>
                 <a href="#contato" className="text-background/80 hover:text-background transition-colors">
                   Contato
