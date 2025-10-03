@@ -1,62 +1,76 @@
 import { Badge } from "@/components/ui/badge";
+import suvinil from "@/assets/clients/suvinil.png";
+import akzonobel from "@/assets/clients/akzonobel.png";
+import coral from "@/assets/clients/coral.png";
+import gilletteVenus from "@/assets/clients/gillette-venus.png";
+import redebody from "@/assets/clients/redebody.png";
+import metroTatuape from "@/assets/clients/metro-tatuape.png";
+import patriani from "@/assets/clients/patriani.png";
+import contatto from "@/assets/clients/contatto.png";
+import cremaCultural from "@/assets/clients/crema-cultural.png";
+import casaAtiva from "@/assets/clients/casa-ativa.png";
+import midiZero11 from "@/assets/clients/midi-zero11.png";
+import cascaGastro from "@/assets/clients/casca-gastro.png";
+import muquirana from "@/assets/clients/muquirana.png";
+import prefeituraSantos from "@/assets/clients/prefeitura-santos.png";
 
 const Clients = () => {
   const clients = [
     {
       name: "Suvinil",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Suvinil_logo.svg/1200px-Suvinil_logo.svg.png",
+      logo: suvinil,
     },
     {
       name: "AkzoNobel",
-      logo: "https://companieslogo.com/img/orig/AKZA.AS-4becfd76.png",
+      logo: akzonobel,
     },
     {
       name: "Coral",
-      logo: "https://seeklogo.com/images/T/tintas-coral-logo-FE6F0B3C02-seeklogo.com.png",
+      logo: coral,
     },
     {
       name: "Gillette Venus",
-      logo: "https://logos-world.net/wp-content/uploads/2020/11/Gillette-Venus-Logo.png",
+      logo: gilletteVenus,
     },
     {
       name: "Redebody",
-      logo: "https://media.licdn.com/dms/image/v2/D4D0BAQHqWxJ0YpC5nw/company-logo_200_200/company-logo_200_200/0/1719944653326/redebody_tech_logo?e=2147483647&v=beta&t=uRMqC0VfzXvZ6LRn5bLa8mRwYlOKNP5YwPkE5N-MFr4",
+      logo: redebody,
     },
     {
       name: "Shopping Metrô Tatuapé",
-      logo: "https://shoppingmetrotatuape.com.br/wp-content/uploads/2020/02/logo-metro-tatuape-shopping.png",
+      logo: metroTatuape,
     },
     {
       name: "Patriani Construtora",
-      logo: "https://media.licdn.com/dms/image/v2/C4D0BAQFKX6FuZGdQqA/company-logo_200_200/company-logo_200_200/0/1631303713669?e=2147483647&v=beta&t=8Hjo8mCjQnVxVOTB7JDm7qG1MmA0uJ1YgCpJGCZBn0Q",
+      logo: patriani,
     },
     {
       name: "Contatto",
-      logo: "https://media.licdn.com/dms/image/v2/C4D0BAQGOzQSYvxCYnw/company-logo_200_200/company-logo_200_200/0/1631303283168?e=2147483647&v=beta&t=Xp8nnYqb2l5qCMfQGdPqRIqMzZYNqJr3bKfJQN1F1qQ",
+      logo: contatto,
     },
     {
       name: "Crema Cultural",
-      logo: "https://cremacultural.com.br/wp-content/uploads/2022/09/logo-crema-cultural.png",
+      logo: cremaCultural,
     },
     {
       name: "Casa Ativa",
-      logo: "https://scontent.fsdu32-1.fna.fbcdn.net/v/t39.30808-6/241767449_4477961735576419_7799653896832830632_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=IkYZqZw8TREQ7kNvgGLZDGL&_nc_zt=23&_nc_ht=scontent.fsdu32-1.fna&_nc_gid=AZnYQ4JBZaV8m5cP7tC3P0A&oh=00_AYBsLRBOb4-5qwqDQOZPL3fQnrGRJFRG8UxJ6Gb4F9oHCQ&oe=67831F4F",
+      logo: casaAtiva,
     },
     {
       name: "Midi Zero11",
-      logo: "https://midizero11.com.br/wp-content/uploads/2021/03/logo-midi-zero11.png",
+      logo: midiZero11,
     },
     {
       name: "Casca Gastro-Bar",
-      logo: "https://media-cdn.tripadvisor.com/media/photo-s/1a/9c/7e/3c/casca-gastro-bar.jpg",
+      logo: cascaGastro,
     },
     {
       name: "Muquirana's Bar",
-      logo: "https://media-cdn.tripadvisor.com/media/photo-s/1a/8f/8e/a3/muquirana-s-bar.jpg",
+      logo: muquirana,
     },
     {
       name: "Prefeitura de Santos",
-      logo: "https://www.santos.sp.gov.br/static/files.santos.sp.gov.br/img/logo-pms.png",
+      logo: prefeituraSantos,
     },
   ];
 
