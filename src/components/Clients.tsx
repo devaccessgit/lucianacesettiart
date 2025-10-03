@@ -96,11 +96,11 @@ const Clients = () => {
                 key={index}
                 className="group p-6 bg-card rounded-xl border-2 border-border hover:border-botanical-green-dark hover:shadow-medium transition-all duration-300 flex flex-col items-center justify-center text-center gap-4"
               >
-                <div className="w-full h-20 flex items-center justify-center">
+                <div className="w-full h-32 flex items-center justify-center">
                   <img
                     src={client.logo}
                     alt={`Logo ${client.name}`}
-                    className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                    className="max-w-full max-h-full object-contain transition-all duration-300"
                     onError={(e) => {
                       // Fallback para texto se a imagem não carregar
                       e.currentTarget.style.display = 'none';
