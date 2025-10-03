@@ -1,10 +1,6 @@
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import kombiCiganos1 from "@/assets/kombi-ciganos-1.jpg";
 import kombiCiganos2 from "@/assets/kombi-ciganos-2.jpg";
 import midiFashion from "@/assets/midi-fashion.jpg";
@@ -21,9 +17,6 @@ interface SpecialProject {
 }
 
 const SpecialProjects = () => {
-  const [selectedProject, setSelectedProject] = useState<SpecialProject | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   const projects: SpecialProject[] = [
     {
       title: "Arte Autoral para Kombi 'Ciga-Nos'",
@@ -62,28 +55,6 @@ const SpecialProjects = () => {
     },
   ];
 
-  const openProject = (project: SpecialProject) => {
-    setSelectedProject(project);
-    setCurrentImageIndex(0);
-  };
-
-  const closeProject = () => {
-    setSelectedProject(null);
-    setCurrentImageIndex(0);
-  };
-
-  const nextImage = () => {
-    if (selectedProject && currentImageIndex < selectedProject.images.length - 1) {
-      setCurrentImageIndex(currentImageIndex + 1);
-    }
-  };
-
-  const prevImage = () => {
-    if (currentImageIndex > 0) {
-      setCurrentImageIndex(currentImageIndex - 1);
-    }
-  };
-
   return (
     <section id="projetos-especiais" className="py-24 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-6">
@@ -104,8 +75,7 @@ const SpecialProjects = () => {
             {projects.map((project, index) => (
               <Card 
                 key={index}
-                className="group overflow-hidden border-2 hover:border-accent hover:shadow-medium transition-all duration-300 cursor-pointer"
-                onClick={() => openProject(project)}
+                className="group overflow-hidden border-2 hover:border-accent hover:shadow-medium transition-all duration-300"
               >
                 <CardContent className="p-0">
                   {/* Carrossel de miniaturas quadradas */}
@@ -152,76 +122,6 @@ const SpecialProjects = () => {
           </div>
         </div>
       </div>
-
-      {/* Popup com imagens grandes e detalhes */}
-      <Dialog open={!!selectedProject} onOpenChange={(open) => !open && closeProject()}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold">{selectedProject?.title}</DialogTitle>
-          </DialogHeader>
-          
-          {selectedProject && (
-            <div className="space-y-6">
-              {/* Navegação de imagens grandes */}
-              <div className="relative">
-                <div className="relative aspect-square overflow-hidden rounded-lg bg-muted">
-                  <img
-                    src={selectedProject.images[currentImageIndex]}
-                    alt={`${selectedProject.title} - Imagem ${currentImageIndex + 1}`}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                
-                {selectedProject.images.length > 1 && (
-                  <>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="absolute left-4 top-1/2 -translate-y-1/2"
-                      onClick={prevImage}
-                      disabled={currentImageIndex === 0}
-                    >
-                      <ChevronLeft className="h-6 w-6" />
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="absolute right-4 top-1/2 -translate-y-1/2"
-                      onClick={nextImage}
-                      disabled={currentImageIndex === selectedProject.images.length - 1}
-                    >
-                      <ChevronRight className="h-6 w-6" />
-                    </Button>
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-background/80 px-3 py-1 rounded-full text-sm">
-                      {currentImageIndex + 1} / {selectedProject.images.length}
-                    </div>
-                  </>
-                )}
-              </div>
-
-              {/* Detalhes do projeto */}
-              <div className="space-y-4">
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">Categoria</p>
-                  <Badge className="bg-accent text-accent-foreground">{selectedProject.category}</Badge>
-                </div>
-                
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">Cliente</p>
-                  <p className="font-semibold text-primary">{selectedProject.client}</p>
-                </div>
-
-                {selectedProject.description && (
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">Descrição</p>
-                    <p className="text-foreground/80 leading-relaxed">{selectedProject.description}</p>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };
